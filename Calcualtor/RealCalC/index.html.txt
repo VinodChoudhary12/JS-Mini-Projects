@@ -1,0 +1,8 @@
+SELECT vendordetail.VendorID, vendordetail.Name AS VendorName, vendordetail.Address AS VendorAddress, vendordetail.City AS VendorCity,
+       vendordetail.Contact AS VendorContact, vendordetail.Email AS VendorEmail, vendordetail.AAdharCard AS VendorAadharCard,
+       vendordetail.DateOfReg AS VendorDateOfReg, vendordetail.DateOfJoin AS VendorDateOfJoin, vendordetail.block_status AS VendorBlockStatus,
+       vendordetail.Password AS VendorPassword, vendordetail.Image AS VendorImage, vendordetail.Salary AS VendorSalary,
+       bookingtable.OrderNo, bookingtable.UserID, bookingtable.UserName, bookingtable.Services, bookingtable.Date, bookingtable.Time, bookingtable.Address AS OrderAddress,
+       bookingtable.ServiceDescription, bookingtable.Status, bookingtable.Mobile
+FROM vendordetail
+JOIN bookingtable ON vendordetail.VendorID = bookingtable.VendorID;
