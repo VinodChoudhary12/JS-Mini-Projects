@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script>
+            function square(sq)
+            {
+                document.getElementById("sqr").innerHTML=sq*sq;
+                
+            }
+
+                function Factorial(a)
+                {
+                    var f=1;
+                    for(let i=1;i<=a;i++)
+                    {
+                        f=f*i;
+                        
+                    }
+                    document.write(f);
+                    
+                }
+
+
+        </script>
+
+
+
+</head>
+<body>
+    
+
+
+    <button id="sqr" ondblclick="square(5)" >Square</button>
+
+
+    <!-- Contaext Menu -->
+    <button oncontextmenu="Factorial(5)" > Factorial</button>
+    <h2 id="fact"> </h2>
+    
+</body>
+</html>

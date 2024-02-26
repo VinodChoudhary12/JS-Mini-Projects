@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addNumbers() {
+            var a = parseInt(prompt("Enter the value for a"));
+            var b = parseInt(prompt("Enter the value for b"));
+            if (!isNaN(a) && !isNaN(b)) {
+                var sum = a + b;
+                alert("The sum of a and b is " + sum);
+            } else {
+                alert("Enter valid numbers for a and b");
+            }
+            document.write("Sum of "+a+" and "+b+" Is "+sum);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="addNumbers()">a + b</button>
+
+
+
+</body>
+</html>

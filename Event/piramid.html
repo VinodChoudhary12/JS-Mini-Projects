@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function piramid()
+        {
+            var a=parseInt(prompt("Enter The Number"));
+            for(let i=1;i<=a;i++)
+            {
+                for(let j=1;j<=i;j++)
+                {
+                    document.write("* ");
+                }
+                document.write("<br>");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <button ondblclick="piramid()" >Double Click Piramid Pettern</button>
+    
+</body>
+</html>

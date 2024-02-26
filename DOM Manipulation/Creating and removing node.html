@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create and removing the node</title>
+</head>
+<body>
+
+    <!-- <div id="delet">
+        Hii I Please Delete Me....
+    </div> -->
+    <script>
+        const newDiv = document.createElement('Div')
+        document.body.append(newDiv);
+        const newText =document.createTextNode("hello I Create First DOM Manipluation");
+        newDiv.appendChild(newText);
+        body.append(newDiv);
+        document.body.after(newDiv)  //Add Node In After The Body..........
+        //document.body.before(newDiv) //Add Node In before The Body.........
+        
+        newDiv.textContent="Now I'm a Removed Node"
+        
+
+    </script>    
+</body>
+</html>
