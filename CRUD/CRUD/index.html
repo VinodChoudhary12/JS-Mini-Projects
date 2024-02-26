@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crud App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg text-white bg-primary ">
+    <div class="container-fluid text-white">
+      <a class="navbar-brand text-white" href="#">Navbar w/ text</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Pricing</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <main>
+
+    <div class="container mt-5 col-6">
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="inp" placeholder="Chapter" aria-label="Recipient's username"
+          aria-describedby="button-addon2">
+        <button class="btn btn-outline-success" type="button" id="button-addon2">Add</button>
+      </div>
+      <ul class="list-group" id="uli">
+        <!-- <li class="list-group-item  d-flex justify-content-between"> <h3 class="flex-grow-1">An item</h3>
+                <button class="btn btn-warning mx-3  " id="edit">
+                    Edit
+                </button>
+                <button class=" btn btn-danger "  onclick="removeChapter(this)">
+                    Remove
+                </button>
+            </li> -->
+
+      </ul>
+
+
+
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <script>
+    let addBtn = document.getElementById("button-addon2")
+    addBtn.addEventListener('click', addChapter)
+
+    function addChapter() {
+      let inp = document.getElementById('inp').value;
+      let ul = document.getElementById("uli");
+      let newli = document.createElement("li");
+
+      if (ul.children.length > 0 && ul.children[0].classList.contains("emptymsg")) {
+        ul.children[0].remove();
+      }
+      if (inp != null && inp != "") {
+        newli.className = "list-group-item d-flex justify-content-between";
+        newli.innerHTML = `<h3 class="flex-grow-1">${inp}</h3>
+                  <button class="btn btn-warning mx-3" onclick="Editfn(this)" id="edit">Edit</button>
+                  <button class="btn btn-danger" onclick="removeChapter(this)">Remove</button>`;
+        ul.appendChild(newli);
+        newli.style.marginTop = "15px";
+
+      } else {
+
+      }
+
+      document.getElementById('inp').value = ''; // Clear the input box
+    }
+
+    function removeChapter(element) {
+      element.parentElement.remove();
+      let ul = document.getElementById("uli");
+      if (ul.children.length === 0) {
+        let newmsg = document.createElement("h3");
+        newmsg.classList.add("emptymsg")
+        newmsg.textContent = "Chapters Are Not available"
+        ul.appendChild(newmsg)
+      }
+      else {
+
+      }
+    }
+    // function Editfn(element)
+    // {
+    //   let inp = document.getElementById('inp').value;
+    //   newinp = document.createElement("input")
+    //   newinp.className="form-control";
+    //   newinp.type="text"
+    //   inp.appendChild(newinp)
+
+
+    // }
+    function Editfn(element) {
+      console.log("Element name is" + element);
+      let li = element.parentElement;
+      console.log(li);
+      let h3 = li.querySelector('h3');
+      let btnEdit = li.querySelector('.btn-warning');
+
+      let input = document.createElement("input");
+      input.className = "form-control";
+      input.type = "text";
+      input.value = h3.textContent;
+
+      let btnSave = document.createElement("button");
+      btnSave.className = "btn btn-success mx-3";
+      btnSave.textContent = "Save";
+      btnSave.onclick = function () {
+        h3.textContent = input.value;
+        input.style.display = "none";
+        h3.style.display = "block";
+        btnSave.remove();
+        btnEdit.style.display = "block";
+      };
+
+      h3.style.display = "none";
+      li.insertBefore(input, btnEdit);
+      li.insertBefore(btnSave, btnEdit);
+      btnEdit.style.display = "none";
+    }
+
+  </script>
+</body>
+
+</html>
